@@ -1,4 +1,4 @@
-parametrage:
+parametrage :
 
 camera.js >  	FOV (en radians)
 		
