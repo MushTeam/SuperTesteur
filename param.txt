@@ -1,0 +1,8 @@
+parametrage:
+
+camera.js >  	FOV (en radians)
+		
+
+player.js >	vitesse de déplacement
+		vitesse de rotation
+		position d'origine // a intégré a map.js
