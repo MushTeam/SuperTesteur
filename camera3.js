@@ -16,9 +16,9 @@ var Camera = function(level) {
 	this.draw = function(player) {
 	
 		//affichage sol/plafond
-		context.fillStyle = "rgba(0,0,0,1)";
+		context.fillStyle = "rgba(29,123,134,1)"; //plafond
 		context.fillRect(0,0,canvasWidth,canvasHeight/2);
-		context.fillStyle = "rgba(200,200,200,1)";
+		context.fillStyle = "rgba(0,39,48,1)"; //sol
 		context.fillRect(0,canvasHeight/2,canvasWidth,canvasHeight/2);
 		
 		//affichage mur
