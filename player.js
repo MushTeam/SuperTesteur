@@ -1,7 +1,7 @@
 //Player
 
 var Player = function() {
-	this.pos = new Vector2(5*256,7*256);
+	this.pos = new Vector2(5*617,7*617);
 	this.direction = new Vector2(0,1);
 	var vit = 20;
 	var rotation = Math.PI/180;
