@@ -12,14 +12,14 @@ var Camera = function(level) {
 	texture.push([new Image(),new Image()]);
 	texture[0][0].src = "img/wall1_0.png";
 	texture[0][1].src = "img/wall1_1.png";
-	var refDistance = widthBloc*widthBloc / ( Math.tan(this.fov/2));
+	var refDistance = widthBloc*widthBloc / (Math.tan(this.fov/2));
 	
 	this.draw = function(player) {
 	
 		//affichage sol/plafond
-		context.fillStyle = "rgba(0,0,0,1)";
+		context.fillStyle = "rgba(29,123,134,1)";
 		context.fillRect(0,0,canvasWidth,canvasHeight/2);
-		context.fillStyle = "rgba(200,200,200,1)";
+		context.fillStyle = "rgba(0,39,48,1)";
 		context.fillRect(0,canvasHeight/2,canvasWidth,canvasHeight/2);
 		
 		//affichage mur
