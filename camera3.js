@@ -12,7 +12,7 @@ var Camera = function(level) {
 	texture.push([new Image(),new Image()]);
 	texture[0][0].src = "img/wall1_0.png";
 	texture[0][1].src = "img/wall1_1.png";
-	var refDistance = widthBloc / ( Math.tan(this.fov/2));
+	var refDistance = widthBloc*widthBloc / ( Math.tan(this.fov/2));
 	
 	this.draw = function(player) {
 	
@@ -97,7 +97,7 @@ var Camera = function(level) {
 			var distance = (posRaycast.x - player.pos.x)*player.direction.x + (posRaycast.y - player.pos.y)*player.direction.y;
 			//calcul hauteur
 			//var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
-			var hauteur = (refDistance*widthBloc)/distance;
+			var hauteur = refDistance /distance;
 			
 			// affichage
 			
@@ -192,7 +192,7 @@ var Camera = function(level) {
 			var distance = (posRaycast.x - player.pos.x)*player.direction.x + (posRaycast.y - player.pos.y)*player.direction.y;
 			//calcul hauteur
 			//var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
-			var hauteur = (refDistance*widthBloc)/distance;
+			var hauteur = refDistance / distance;
 			// affichage
 			
 			//gestion texture

@@ -3,7 +3,7 @@
 var Player = function() {
 	this.pos = new Vector2(5*617,7*617);
 	this.direction = new Vector2(0,1);
-	var vit = 20;
+	var vit = 30;
 	var rotation = Math.PI/180;
 	var cosAlpha = Math.cos(rotation);
 	var sinAlpha = Math.sin(rotation);
