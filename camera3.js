@@ -12,13 +12,14 @@ var Camera = function(level) {
 	texture.push([new Image(),new Image()]);
 	texture[0][0].src = "img/wall1_0.png";
 	texture[0][1].src = "img/wall1_1.png";
+	var refDistance = widthBloc / ( Math.tan(this.fov/2));
 	
 	this.draw = function(player) {
 	
 		//affichage sol/plafond
-		context.fillStyle = "rgba(29,123,134,1)"; //plafond
+		context.fillStyle = "rgba(0,0,0,1)";
 		context.fillRect(0,0,canvasWidth,canvasHeight/2);
-		context.fillStyle = "rgba(0,39,48,1)"; //sol
+		context.fillStyle = "rgba(200,200,200,1)";
 		context.fillRect(0,canvasHeight/2,canvasWidth,canvasHeight/2);
 		
 		//affichage mur
@@ -95,7 +96,9 @@ var Camera = function(level) {
 			// calcul distance
 			var distance = (posRaycast.x - player.pos.x)*player.direction.x + (posRaycast.y - player.pos.y)*player.direction.y;
 			//calcul hauteur
-			var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
+			//var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
+			var hauteur = (refDistance*widthBloc)/distance;
+			
 			// affichage
 			
 			//gestion texture
@@ -122,11 +125,6 @@ var Camera = function(level) {
 			}
 			
 			context.drawImage(text , positionSource , 0 , 1 , widthBloc , canvasWidth/2+i-1 ,(canvasHeight-hauteur)/2 , 1, hauteur);
-			
-			
-			
-			//context.fillStyle = "rgba(255,0,0,1)";
-			//context.fillRect(canvasWidth/2+i-1,(canvasHeight-hauteur)/2,1,hauteur);
 			
 			
 			
@@ -193,7 +191,8 @@ var Camera = function(level) {
 			// calcul distance
 			var distance = (posRaycast.x - player.pos.x)*player.direction.x + (posRaycast.y - player.pos.y)*player.direction.y;
 			//calcul hauteur
-			var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
+			//var hauteur = (canvasHeight*widthBloc)/distance; // a définir mieu !
+			var hauteur = (refDistance*widthBloc)/distance;
 			// affichage
 			
 			//gestion texture
