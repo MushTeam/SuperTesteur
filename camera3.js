@@ -12,7 +12,12 @@ var Camera = function(level) {
 	texture.push([new Image(),new Image()]);
 	texture[0][0].src = "img/wall1_0.png";
 	texture[0][1].src = "img/wall1_1.png";
-	var refDistance = widthBloc*widthBloc / (Math.tan(this.fov/2));
+	texture.push([new Image(),new Image()]);
+	texture[1][0].src = "img/wall2_0.png";
+	texture[1][1].src = "img/wall2_1.png";
+	
+	
+	var refDistance = canvasHeight*widthBloc / (Math.tan(this.fov/2));
 	
 	this.draw = function(player) {
 	
@@ -105,10 +110,10 @@ var Camera = function(level) {
 			if(lastCollisionEW) { //map[tab.y][tab.x]
 				//Selection texture (foncer/clair)
 				if(sensX > 0) {
-					var text = texture[0][0];
+					var text = texture[map[tab.y][tab.x]-1][0];
 				}
 				else {
-					var text = texture[0][1];
+					var text = texture[map[tab.y][tab.x]-1][1];
 				}
 				var positionSource = Math.floor(posRaycast.y - tab.y * widthBloc);
 				
@@ -116,10 +121,10 @@ var Camera = function(level) {
 			else {
 				//Selection texture (foncer/clair)
 				if(sensY > 0) {
-					var text = texture[0][0];
+					var text = texture[map[tab.y][tab.x]-1][0];
 				}
 				else {
-					var text = texture[0][1];
+					var text = texture[map[tab.y][tab.x]-1][1];
 				}
 				var positionSource = Math.floor(posRaycast.x - tab.x * widthBloc);
 			}
@@ -199,23 +204,23 @@ var Camera = function(level) {
 			if(lastCollisionEW) { //map[tab.y][tab.x]
 				//Selection texture (foncer/clair)
 				if(sensX > 0) {
-					text = texture[0][0];
+					var text = texture[map[tab.y][tab.x]-1][0];
 				}
 				else {
-					text = texture[0][1];
+					var text = texture[map[tab.y][tab.x]-1][1];
 				}
-				positionSource = Math.floor(posRaycast.y - tab.y * widthBloc);
+				var positionSource = Math.floor(posRaycast.y - tab.y * widthBloc);
 				
 			}
 			else {
 				//Selection texture (foncer/clair)
 				if(sensY > 0) {
-					text = texture[0][0];
+					var text = texture[map[tab.y][tab.x]-1][0];
 				}
 				else {
-					text = texture[0][1];
+					var text = texture[map[tab.y][tab.x]-1][1];
 				}
-				positionSource = Math.floor(posRaycast.x - tab.x * widthBloc);
+				var positionSource = Math.floor(posRaycast.x - tab.x * widthBloc);
 			}
 			
 			context.drawImage(text , positionSource , 0 , 1 , widthBloc , canvasWidth/2-i-1 ,(canvasHeight-hauteur)/2 , 1, hauteur);
